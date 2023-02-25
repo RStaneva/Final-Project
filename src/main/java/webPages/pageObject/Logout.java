@@ -22,12 +22,6 @@ public class Logout {
         return message.getText();
     }
 
-    public Boolean isLogoutIconDisplayed() {
-        WebElement logoutIcon = driver.findElement(By.xpath("//ul[@class='navbar-nav my-ml d-none d-md-block']//li[@class='nav-item ng-star-inserted']//a[@class='nav-link']"));
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        return logoutIcon.isDisplayed();
-    }
-
     public void clickBackButton() {
         driver.navigate().back();
     }

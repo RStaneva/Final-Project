@@ -1,5 +1,6 @@
 package webPages.pageFactory;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,10 +12,15 @@ import java.time.Duration;
 
 public class Header {
     private final WebDriver driver;
+
     @FindBy(id = "nav-link-profile")
-    private WebElement profileLink;
+    private WebElement profileButton;
+
     @FindBy(id = "nav-link-login")
-    private WebElement loginLink;
+    private WebElement loginButton;
+
+    @FindBy(xpath = "//ul[@class='navbar-nav my-ml d-none d-md-block']//li[@class='nav-item ng-star-inserted']//a[@class='nav-link']")
+    private WebElement logoutButton;
 
     public Header(WebDriver driver) {
         this.driver = driver;
@@ -23,11 +29,26 @@ public class Header {
 
     public void clickProfile() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(profileLink));
-        profileLink.click();
+        wait.until(ExpectedConditions.elementToBeClickable(profileButton));
+        profileButton.click();
     }
 
     public void clickLogin() {
-        loginLink.click();
+        loginButton.click();
+    }
+    public Boolean isLoginButtonDisplayed(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return loginButton.isDisplayed();
+    }
+
+    public void clickLogout(){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(logoutButton));
+        logoutButton.click();
+    }
+
+    public Boolean isLogoutIconDisplayed() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        return logoutButton.isDisplayed();
     }
 }

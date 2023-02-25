@@ -1,5 +1,6 @@
 package webPages.pageFactory;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -12,12 +13,16 @@ import java.time.Duration;
 public class LoginPage {
     public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/login";
     private final WebDriver driver;
+
     @FindBy(id = "sign-in-button")
     private WebElement signInButton;
+
     @FindBy(id = "defaultLoginFormPassword")
     private WebElement passwordField;
+
     @FindBy(id = "defaultLoginFormUsername")
     private WebElement usernameField;
+
     @FindBy(className = "h4")
     private WebElement signInFormTitle;
 
@@ -38,6 +43,12 @@ public class LoginPage {
 
     public void populateUsername(String username) {
         usernameField.sendKeys(username);
+    }
+
+    public void signIn(String username, String password){
+        populateUsername(username);
+        populatePassword(password);
+        clickSignIn();
     }
 
     public String getSignInElementText() {

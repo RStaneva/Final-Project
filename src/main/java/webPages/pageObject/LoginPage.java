@@ -39,12 +39,6 @@ public class LoginPage {
         clickSignIn();
     }
 
-    public Boolean isSignInIconDisplayed(){
-        WebElement signInIcon= driver.findElement(By.id("nav-link-login"));
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-         return signInIcon.isDisplayed();
-    }
-
     public String getSignInElementText() {
         WebElement signInFormTitle = driver.findElement(By.className("h4"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
