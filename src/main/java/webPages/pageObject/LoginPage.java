@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class LoginPage {
+
     public static final String PAGE_URL = "http://training.skillo-bg.com:4300/users/login";
     private final WebDriver driver;
 
@@ -22,31 +23,27 @@ public class LoginPage {
         signInButton.click();
     }
 
-    public void populatePassword() {
+    public void populatePassword(String password) {
         WebElement passwordField = driver.findElement(By.id("defaultLoginFormPassword"));
-        passwordField.sendKeys("11223344");
+        passwordField.sendKeys(password);
     }
 
-    public void populateUsername() {
+    public void populateUsername(String username) {
         WebElement userNameField = driver.findElement(By.id("defaultLoginFormUsername"));
-        userNameField.sendKeys("shipyard8@abv.bg");
+        userNameField.sendKeys(username);
     }
 
-    public void signIn(){
-        populateUsername();
-        populatePassword();
+    public void signIn(String username, String password){
+        populateUsername(username);
+        populatePassword(password);
         clickSignIn();
     }
-
 
     public Boolean isSignInIconDisplayed(){
         WebElement signInIcon= driver.findElement(By.id("nav-link-login"));
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
          return signInIcon.isDisplayed();
-
     }
-
-
 
     public String getSignInElementText() {
         WebElement signInFormTitle = driver.findElement(By.className("h4"));

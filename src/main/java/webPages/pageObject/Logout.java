@@ -12,7 +12,6 @@ public class Logout {
     private final WebDriver driver;
 
     public Logout(WebDriver driver) {
-
         this.driver = driver;
     }
 
@@ -29,82 +28,7 @@ public class Logout {
         return logoutIcon.isDisplayed();
     }
 
-
     public void clickBackButton() {
         driver.navigate().back();
     }
-
-        //public boolean checkSessionIsInvalid(){
-        // return driver.
-
-        //}
-
-
-   /*
-
-   /*( Boolean isLogoutMessageDisplayed=driver.findElement(By.xpath("//*[@id=\"toast-container\"]/div")).isDisplayed();
-            Assert.assertTrue(isLogoutMessageDisplayed,"The modal is not displayed");
-
-            тестът минава.
-            ДА се преобразува в метод, да се махнат асертъните
-
-
-    public boolean isSuccessfulLogoutMessageDisplayed(){
-        WebElement LogoutMessage=driver.findElement(By.xpath("//*[@id=\"toast-container\"]/div"));
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        return wait.until(ExpectedConditions.visibilityOf(LogoutMessage));
-
-    }*/
-
-
-/*
-
-
-    public void StayLogoutAfterClickingBack(){
-            //verify that if a user clicks on the back button of the browser after logout, the user should not be able to be redirected to a logged in mode application
-            driver.navigate().back();
-        }
-
-        + w test assertion za newijdane na Profile i Lofout button, visible Sign in button
-
-    @Test
-    public Boolean isLogoutIconDisplayed(){
-        //verVerify  After successful login in Gmail click on the profile icon to check logout button is visible or no
-    }
-
-*/
-
-
-
-
-
-
-/*
-
-
-    public void StayLogoutAfterClickingBack(){
-            //verify that if a user clicks on the back button of the browser after logout, the user should not be able to be redirected to a logged in mode application
-            driver.navigate().back();
-        }
-
-        + w test assertion za newijdane na Profile i Lofout button, visible Sign in button
-
-    @Test
-    public Boolean isLogoutIconDisplayed(){
-        //verVerify  After successful login in Gmail click on the profile icon to check logout button is visible or no
-    }
-
-*/
-
-
-
-/*
-//този метод да се извика от логин пейджа само за проверка ассертион
-    public boolean isUrlLoaded() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        return wait.until(ExpectedConditions.urlToBe(LoginPage.PAGE_URL));
-    }*/
-
-
-
 }

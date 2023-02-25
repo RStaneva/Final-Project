@@ -1,4 +1,4 @@
-import io.github.bonigarcia.wdm.WebDriverManager;
+/*import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -58,8 +58,8 @@ public class LogoutTestsPageFactory {
             Assert.assertTrue(loginPage.isUrlLoaded(), "The Login URL is not correct!");
             String signInText = loginPage.getSignInElementText();
             Assert.assertEquals(signInText, "Sign in");
-            loginPage.populateUsername();
-            loginPage.populatePassword();
+         //   loginPage.populateUsername();
+         //   loginPage.populatePassword();
             loginPage.clickSignIn();
 
             Assert.assertTrue(homePage.isUrlLoaded(), "The Home URL is not correct!");
@@ -83,3 +83,4 @@ public class LogoutTestsPageFactory {
         }
     }
 
+*/

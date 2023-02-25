@@ -8,77 +8,75 @@ import webPages.pageObject.*;
 import java.time.Duration;
 
 public class LogoutTestsPageObject {
-        private WebDriver driver;
+    private WebDriver driver;
 
-        @DataProvider(name = "getUsers")
-        public Object[][] getUsers() {
-            return new Object[][]{{"DimitarTarkalanov", "Dimitar1.Tarkalanov1", "DimitarTarkalanov"}, //login with username
-                    //{"testMail1@gmail.com", "Dimitar1.Tarkalanov1", "DimitarTarkalanov"}, //login with email
-                    //{"testAdmin@gmail.com", "Admin1.User1", "AdminUser"}, //login with admin user
-                    //{"manager@gmail.com", "Manager1.Use1", "ManagerUser"} //login with manager user
-            };
-        }
+    @BeforeSuite
+    protected final void setupTestSuite() {
+        WebDriverManager.chromedriver().setup();
+    }
 
-        @BeforeSuite
-        protected final void setupTestSuite() {
-            WebDriverManager.chromedriver().setup();
-        }
-
-        @BeforeMethod
-        protected final void setUpTest() {
-            this.driver = new ChromeDriver();
-            this.driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
-        }
+    @BeforeMethod
+    protected final void setUpTest() {
+        this.driver = new ChromeDriver();
+        this.driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+    }
 
 
-        @AfterMethod
-        protected final void tearDownTest() {
-            if (this.driver != null) {
-                this.driver.quit();
-            }
-        }
-
-
-        @Test
-        public void testLogout(){
-            Logout logout= new Logout (driver);
-            LoginPage login= new LoginPage (driver);
-            Header header=new Header (driver);
-            HomePage homePage = new HomePage(driver);
-            ProfilePage profilePage = new ProfilePage(driver);
-
-            homePage.navigateTo();
-            header.clickLogin();
-
-            LoginPage loginPage = new LoginPage(driver);
-            Assert.assertTrue(loginPage.isUrlLoaded(), "The Login URL is not correct!");
-            String signInText = loginPage.getSignInElementText();
-            Assert.assertEquals(signInText, "Sign in");
-            loginPage.signIn();
-
-            Assert.assertTrue(homePage.isUrlLoaded(), "The Home URL is not correct!");
-            header.clickProfile();
-
-            Assert.assertTrue(profilePage.isUrlLoaded(), "The Profile URL is not correct!");
-            String actualUserName = profilePage.getUsername();
-            String name= "ralista";
-            Assert.assertEquals(actualUserName, name, "The username is incorrect!");
-
-           Assert.assertTrue(logout.isLogoutIconDisplayed(), "Logout icon is not visible.");
-            header.clickLogout();
-
-            String logoutMessageText=logout.getMessageModalText();
-            Assert.assertEquals(logoutMessageText, "Successful logout!");
-
-            Assert.assertTrue(login.isUrlLoaded(), "The Login page URL is not loaded");
-
-            logout.clickBackButton();
-            Assert.assertTrue(login.isSignInIconDisplayed(), "The user is not logout successfully");
-
+    @AfterMethod
+    protected final void tearDownTest() {
+        if (this.driver != null) {
+            this.driver.quit();
         }
     }
+
+    @DataProvider(name = "getUsers")
+    public Object[][] getUsers() {
+        return new Object[][]{
+                {"myTestUser", "123456U", "myTestUser"}, //login with username
+                {"testMail1@mail.bg", "123456U", "myTestUser"} //login with email
+        };
+    }
+
+
+    @Test(dataProvider = "getUsers", invocationCount = 1)
+    public void testLogout(String user, String password, String name) {
+        Logout logout = new Logout(driver);
+        LoginPage login = new LoginPage(driver);
+        Header header = new Header(driver);
+        HomePage homePage = new HomePage(driver);
+        ProfilePage profilePage = new ProfilePage(driver);
+
+        homePage.navigateTo();
+        header.clickLogin();
+
+        LoginPage loginPage = new LoginPage(driver);
+        Assert.assertTrue(loginPage.isUrlLoaded(), "The Login URL is not correct!");
+        String signInText = loginPage.getSignInElementText();
+        Assert.assertEquals(signInText, "Sign in");
+        loginPage.signIn(user, password);
+
+        Assert.assertTrue(homePage.isUrlLoaded(), "The Home URL is not correct!");
+        header.clickProfile();
+
+        Assert.assertTrue(profilePage.isUrlLoaded(), "The Profile URL is not correct!");
+        String actualUserName = profilePage.getUsername();
+        Assert.assertEquals(actualUserName, name, "The username is incorrect!");
+
+        Assert.assertTrue(logout.isLogoutIconDisplayed(), "Logout icon is not visible.");
+        header.clickLogout();
+
+        String logoutMessageText = logout.getMessageModalText();
+        Assert.assertEquals(logoutMessageText, "Successful logout!");
+
+        Assert.assertTrue(login.isUrlLoaded(), "The Login page URL is not loaded");
+
+        logout.clickBackButton();
+        Assert.assertTrue(login.isSignInIconDisplayed(), "The session of the user is not ended");
+
+    }
+}
 
 
 
