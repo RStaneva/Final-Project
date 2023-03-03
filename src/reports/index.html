@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods,   2 passed</span>
+                    <span class="method-stats">4 methods,   4 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,12 +103,22 @@
                     <div class="method-list-content passed suite-Default_Suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_Suite" title="LogoutTestsPageFactory" class="method navigator-link" hash-for-method="testLogout(myTestUser, 123456U, myTestUser)">testLogout(myTestUser, 123456U, myTestUser)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_Suite" title="LogoutTestsPageObject" class="method navigator-link" hash-for-method="testLogout(myTestUser, 123456U, myTestUser)">testLogout(myTestUser, 123456U, myTestUser)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_Suite" title="LogoutTestsPageFactory" class="method navigator-link" hash-for-method="testLogout(testMail1@mail.bg, 123456U, myTestUser)">testLogout(testMail1@mail.bg, 123456U, myTestUser)</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_Suite" title="LogoutTestsPageObject" class="method navigator-link" hash-for-method="testLogout(myTestUser, 123456U, myTestUser)">testLogout(myTestUser, 123456U, myTestUser)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="LogoutTestsPageObject" class="method navigator-link" hash-for-method="testLogout(testMail1@mail.bg, 123456U, myTestUser)">testLogout(testMail1@mail.bg, 123456U, myTestUser)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_Suite" title="LogoutTestsPageObject" class="method navigator-link" hash-for-method="testLogout(testMail1@mail.bg, 123456U, myTestUser)">testLogout(testMail1@mail.bg, 123456U, myTestUser)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_Suite -->
@@ -126,7 +136,7 @@
           <div class="suite-Default_Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">LogoutTestsPageFactory</span>
+              <span class="class-name">LogoutTestsPageObject</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -135,6 +145,22 @@
                   </a> <!-- testLogout(myTestUser, 123456U, myTestUser) -->
                   <span class="method-name">testLogout</span>
                   <span class="parameters">(myTestUser,123456U,myTestUser)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testLogout(myTestUser, 123456U, myTestUser)">
+                  </a> <!-- testLogout(myTestUser, 123456U, myTestUser) -->
+                  <span class="method-name">testLogout</span>
+                  <span class="parameters">(myTestUser,123456U,myTestUser)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testLogout(testMail1@mail.bg, 123456U, myTestUser)">
+                  </a> <!-- testLogout(testMail1@mail.bg, 123456U, myTestUser) -->
+                  <span class="method-name">testLogout</span>
+                  <span class="parameters">(testMail1@mail.bg,123456U,myTestUser)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -159,7 +185,7 @@
 &lt;suite name=&quot;Default Suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Final-Project&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;LogoutTestsPageFactory&quot;/&gt;
+      &lt;class name=&quot;LogoutTestsPageObject&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Final-Project --&gt;
 &lt;/suite&gt; &lt;!-- Default Suite --&gt;
@@ -199,20 +225,28 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(4);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'testLogout')
-data.setCell(0, 2, 'LogoutTestsPageFactory')
-data.setCell(0, 3, 22567);
+data.setCell(0, 2, 'LogoutTestsPageObject')
+data.setCell(0, 3, 29490);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'testLogout')
-data.setCell(1, 2, 'LogoutTestsPageFactory')
-data.setCell(1, 3, 21536);
+data.setCell(1, 2, 'LogoutTestsPageObject')
+data.setCell(1, 3, 28690);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'testLogout')
+data.setCell(2, 2, 'LogoutTestsPageObject')
+data.setCell(2, 3, 28499);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'testLogout')
+data.setCell(3, 2, 'LogoutTestsPageObject')
+data.setCell(3, 3, 27442);
 window.suiteTableData['Default_Suite']= { tableData: data, tableDiv: 'times-div-Default_Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 44 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Default_Suite">
               </div> <!-- times-div-Default_Suite -->
             </div> <!-- times-div -->
@@ -238,34 +272,58 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">LogoutTestsPageFactory</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">LogoutTestsPageObject</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">setupTestSuite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">setUpTest</span>
-                <span class="method-start">426 ms</span>
+                <span class="method-start">402 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testLogout(myTestUser, 123456U, myTestUser)</span>
-                <span class="method-start">2427 ms</span>
+                <span class="method-start">2333 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDownTest</span>
-                <span class="method-start">24996 ms</span>
+                <span class="method-start">31024 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
                 <span class="method-name">setUpTest</span>
-                <span class="method-start">25880 ms</span>
+                <span class="method-start">31657 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">testLogout(testMail1@mail.bg, 123456U, myTestUser)</span>
-                <span class="method-start">27208 ms</span>
+                <span class="method-start">32450 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDownTest</span>
-                <span class="method-start">48745 ms</span>
+                <span class="method-start">59892 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpTest</span>
+                <span class="method-start">60533 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testLogout(myTestUser, 123456U, myTestUser)</span>
+                <span class="method-start">61387 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownTest</span>
+                <span class="method-start">90878 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpTest</span>
+                <span class="method-start">91543 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">testLogout(testMail1@mail.bg, 123456U, myTestUser)</span>
+                <span class="method-start">92893 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">tearDownTest</span>
+                <span class="method-start">121393 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
